@@ -1,0 +1,12 @@
+# Python
+nat_publisher/env/
+nat_publisher/__pycache__/
+nat_publisher/**/__pycache__/
+nat_publisher/*.pyc
+nat_publisher/db.sqlite3
+# Go
+nat_consumer/vendor/
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,31 @@
+services:
+
+  nats:
+    image: nats:2.14.5
+    command:
+      - "-js"
+      - "-sd"
+      - "/data"
+    ports:
+      - "14222:4222"
+      - "8222:8222"
+    volumes:
+      - nats_data:/data
+    networks:
+      - nats-network
+
+  nui:
+    image: ghcr.io/nats-nui/nui:latest
+    ports:
+      - "31311:31311"
+    depends_on:
+      - nats
+    networks:
+      - nats-network
+
+volumes:
+  nats_data:
+
+networks:
+  nats-network:
+    driver: bridge
